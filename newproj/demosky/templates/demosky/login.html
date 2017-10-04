@@ -10,8 +10,13 @@
 	<form method="post" class="text-big">
 		{% csrf_token %}
 		{{form.as_p}}
+		
 		<button class="btn btn-default" type="submit" id="loginbtn"> Login</button>
 		<a class="btn btn-default" type="button" id="register" href= "/demosky/register">Register</a>
+		<a href="{% url 'social:begin' 'github' %}">Login with GitHub</a><br>
+		<a href="{% url 'social:begin' 'facebook' %}">Login with Facebook</a>
+		<a href="{% url 'social:begin' 'twitter' %}">Login with Twitter</a>
+		
 	</form>
 </div>
 {% endblock %}
