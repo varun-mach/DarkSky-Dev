@@ -34,7 +34,7 @@ ALLOWED_HOSTS = []
 EMAIL_BACKEND = 'django.core.mail.backends.smtp.EmailBackend'
 EMAIL_HOST = 'smtp.gmail.com' # mail service smtp
 EMAIL_HOST_USER = 'varun.machingal@gmail.com' # email id
-EMAIL_HOST_PASSWORD = 'nutron123e'
+EMAIL_HOST_PASSWORD = ''
 EMAIL_PORT = 587
 EMAIL_USE_TLS = True
 DEFAULT_FROM_EMAIL = 'varun.machingal@gmail.com'
@@ -51,6 +51,10 @@ INSTALLED_APPS = [
     'django.contrib.sessions',
     'django.contrib.messages',
     'django.contrib.staticfiles',
+    'oauth2_provider',
+    'corsheaders',
+	'rest_framework_social_oauth2',
+	'social_django',
 ]
 
 MIDDLEWARE = [
@@ -61,6 +65,8 @@ MIDDLEWARE = [
     'django.contrib.auth.middleware.AuthenticationMiddleware',
     'django.contrib.messages.middleware.MessageMiddleware',
     'django.middleware.clickjacking.XFrameOptionsMiddleware',
+    'corsheaders.middleware.CorsMiddleware',
+	'social_django.middleware.SocialAuthExceptionMiddleware',
 ]
 
 ROOT_URLCONF = 'newproj.urls'
@@ -76,10 +82,35 @@ TEMPLATES = [
                 'django.template.context_processors.request',
                 'django.contrib.auth.context_processors.auth',
                 'django.contrib.messages.context_processors.messages',
+				'social_django.context_processors.backends',
+                'social_django.context_processors.login_redirect',
             ],
         },
     },
 ]
+
+
+# DJANGO REST FRAMEWORK SETTINGS
+REST_FRAMEWORK = {
+    # ...
+    'DEFAULT_AUTHENTICATION_CLASSES': (
+        # ...
+        'oauth2_provider.contrib.rest_framework.OAuth2Authentication',
+        'rest_framework_social_oauth2.authentication.SocialAuthentication',
+    ),
+}
+
+# DJANGO SETTINGS
+AUTHENTICATION_BACKENDS = (
+    # ...
+    'rest_framework_social_oauth2.backends.DjangoOAuth2',
+	'social_core.backends.github.GithubOAuth2',
+    'social_core.backends.twitter.TwitterOAuth',
+    'social_core.backends.facebook.FacebookOAuth2',
+	'social_core.backends.facebook.FacebookAppOAuth2',
+    'django.contrib.auth.backends.ModelBackend',
+)
+
 
 WSGI_APPLICATION = 'newproj.wsgi.application'
 
@@ -139,4 +170,20 @@ STATICFILES_DIRS = [
 
 STATIC_ROOT = os.path.join(BASE_DIR, 'staticfiles')
 LOGIN_REDIRECT_URL = '/demosky/'
+
 LOGOUT_REDIRECT_URL = '/demosky/login/'
+
+#######################
+SOCIAL_AUTH_GITHUB_KEY = '83fa50a02c1efcbc0752'
+SOCIAL_AUTH_GITHUB_SECRET = '21e81f85db9510b3ebb10c3e21f9bdd2c6619c9e'
+
+SOCIAL_AUTH_TWITTER_KEY = 'SxiZjufgAgpqxJOwKin6cxun2'
+SOCIAL_AUTH_TWITTER_SECRET = '1Jn1CpYrIGpoIRuwPi5f7er8zocpB1r2YJf4Gkgxj61DY4Ixj6'
+
+SOCIAL_AUTH_FACEBOOK_KEY = '520728351600204'  # App ID
+SOCIAL_AUTH_FACEBOOK_SECRET = '94eca4297cc4ce51f226eeb0d9a99df0'  # App Secret
+
+LOGIN_URL = 'login'
+LOGOUT_URL = 'logout'
+
+

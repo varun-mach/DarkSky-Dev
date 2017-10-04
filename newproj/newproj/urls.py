@@ -16,9 +16,15 @@ Including another URLconf
 from django.conf.urls import url, include
 from django.contrib import admin
 from newproj import views
+from django.contrib.auth import views as auth_views
 
 urlpatterns = [
     url(r'^$', views.login_redirect),
     url(r'^admin/', admin.site.urls),
     url(r'^demosky/', include('demosky.urls')),
+	url(r'^oauth/', include('social_django.urls', namespace='social')),
+	url(r'^login/$', auth_views.login, name='login'),
+    url(r'^logout/$', auth_views.logout, name='logout'),
+	url(r'^auth/', include('rest_framework_social_oauth2.urls')),
 ]
+
