@@ -31,10 +31,21 @@
       <!-- bootsrap declerations 
       <li><a href="#">Page 1</a></li>-->
     </ul>
-        <ul class="nav navbar-nav navbar-right">
-      <li><a href="/demosky/register/"><span class="glyphicon glyphicon-user"></span> Register</a></li>
-      <li><a href="/demosky/login/"><span class="glyphicon glyphicon-log-in"></span> Login</a></li>
-    </ul>
+    {% if user.is_authenticated %}
+       <ul class="nav navbar-nav navbar-right">
+         <li><a href="/demosky/logout/"><span class="glyphicon glyphicon-log-in"></span>{{user}} Logout</a></li>
+       </ul>
+
+ 
+     {% else %} 
+       <ul class="nav navbar-nav navbar-right">
+        <li><a href="/demosky/register/"><span class="glyphicon glyphicon-user"></span> Register</a></li>
+         <li><a href="/demosky/login/"><span class="glyphicon glyphicon-log-in"></span> Login</a></li>
+       </ul>
+
+      
+     {% endif %} 
+
   </div>
 </nav>
   

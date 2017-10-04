@@ -7,7 +7,7 @@
 
 {% block body_block %}
 <div class="container">
-	<h1 class="text-big"> Please enter your details</h1>
+	<h1 class="headers"> Please enter your details</h1>
 	<form method="post" class="text-big">
 	{% csrf_token %}
 	{{form.as_p}}
