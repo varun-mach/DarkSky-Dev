@@ -33,11 +33,13 @@ ALLOWED_HOSTS = []
 
 EMAIL_BACKEND = 'django.core.mail.backends.smtp.EmailBackend'
 EMAIL_HOST = 'smtp.gmail.com' # mail service smtp
-EMAIL_HOST_USER = 'varun.machingal@gmail.com' # email id
-EMAIL_HOST_PASSWORD = ''
+EMAIL_HOST_USER = 'varunknowitall@gmail.com' # email id
+EMAIL_HOST_PASSWORD = 'machingal1992'
 EMAIL_PORT = 587
 EMAIL_USE_TLS = True
-DEFAULT_FROM_EMAIL = 'varun.machingal@gmail.com'
+DEFAULT_FROM_EMAIL = 'machingal1992'
+
+TEMPLATE_STRING_IF_INVALID = 'Failed'
 
 
 
@@ -169,7 +171,7 @@ STATICFILES_DIRS = [
 ]
 
 STATIC_ROOT = os.path.join(BASE_DIR, 'staticfiles')
-LOGIN_REDIRECT_URL = '/demosky/'
+LOGIN_REDIRECT_URL = '/demosky/verify-user/'
 
 LOGOUT_REDIRECT_URL = '/demosky/login/'
 
