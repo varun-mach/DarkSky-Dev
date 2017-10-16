@@ -4,19 +4,13 @@
 {% block title_block %}Home Page{% endblock %}
 
  {% block body_block %}
-<<<<<<< HEAD
- <p align="center" class="text-big">The stars beckon you !</p>
+
+ <h1 align="center" class="headers">The stars beckon you !</h1>
  <div id="map" style="width:1000px;height:450px;background:yellow; margin: 0 auto 0 auto;"></div>
-=======
- <h1 align="center" class="headers">The stars beckon you !</p>
- <div id="map" style="width:400px;height:400px;background:yellow; margin: 0 auto 0 auto;"></div>
->>>>>>> bdf99018b15b95790b8821b7d8a2bf40f52f6374
 
 <script type="text/javascript">
 function myMap() {
-	//DJANGO_STATIC_URL = '{{ STATIC}}';
-	//var STATIC_URL = "{{ STATIC_URL}}";
-	//alert(STATIC_URL);
+
 	var myObj, j=[], x="";
 	myObj = JSON.parse("{{full_list|escapejs}}");
 	Object.keys(myObj).forEach(function(key,index){
@@ -44,13 +38,6 @@ function myMap() {
     var infowindow = new google.maps.InfoWindow();
 
    var contentString;
-//	'<p>'+
-//		'sensor light level :' + j[i][4] +'<br/>' +
-//		'sensor battery level :' + j[i][5] +
-//	'</p>'
-//'</div>';
-		//alert(<img src="DJANGO_STATIC_URL/DarkSky-Dev/imgs/' + j[i][3] + '.jpg">);
-		//alert('"sometect/'+j[i][3] + '.jpg" %}">');
      google.maps.event.addListener(marker, 'click', (function(marker, i) {
         return function() {
           infowindow.setContent(
@@ -81,7 +68,5 @@ function myMap() {
 <script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyA22S--gBRL49Y2SRDiE15XMlmvf2DEQ3Y&callback=myMap"></script>
 
 <div class="text-big">
-	<p>{{full_list}}</p>
-<img src="{% static "DarkSky-Dev/imgs/sen1.jpg" %}" alt="My image"/>
 </div>
 {% endblock %}

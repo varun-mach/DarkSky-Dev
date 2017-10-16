@@ -3,7 +3,6 @@ from django.shortcuts import render, redirect
 from django.contrib.auth.forms import UserCreationForm, PasswordResetForm
 from django.contrib.auth.models import User
 from django.core.mail import send_mail
-<<<<<<< HEAD
 #below headers required for social login
 from django.contrib.auth.decorators import login_required
 from django.contrib.auth.forms import AdminPasswordChangeForm, PasswordChangeForm
@@ -14,7 +13,35 @@ from social_django.models import UserSocialAuth
 from demosky.models import Sensors
 #from django.http import HttpResponseRedirect, HttpResponse
 import json
+from .forms import RegisterForm
+from .models import EmailUser
+from random import randint
+from django.core.mail import EmailMessage
 
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+# no more headers past this point
+
+#below is code for sprint 1 and 2 DONOT PUT CODE IN THIS SECTION
 
 def test():
     pass
@@ -24,12 +51,6 @@ def test():
         bundle[int(j.sensor_id)] = [str(j.sensor_id),j.x_coord,j.y_coord,str(j.img_name),j.light_data,j.battery_level]
     #print bundle
     return bundle
-=======
-from .forms import RegisterForm
-from .models import EmailUser
-from random import randint
-from django.core.mail import EmailMessage
->>>>>>> bdf99018b15b95790b8821b7d8a2bf40f52f6374
 
 
 # Create your views here.
@@ -143,3 +164,206 @@ def password(request):
     else:
         form = PasswordForm(request.user)
     return render(request, 'demosky/password.html', {'form': form})
+
+
+
+
+
+
+
+
+
+
+
+    #code for sprint 3
+
+
+
+ #varun place code here
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+ #
+
+
+# Rahul Place code here
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+#
+
+
+
+#adarsh code here 
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+#
+
+
+#Shantanu code here
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+#
