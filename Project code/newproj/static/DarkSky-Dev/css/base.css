@@ -1,0 +1,48 @@
+body{
+	background: url('/static/DarkSky-Dev/imgs/stars.gif');
+}
+
+
+
+.text-big {
+	color: yellow;
+	font-size: 20px;
+
+}
+
+.helptext{
+  visibility: hidden;
+}
+
+
+.loginbox {
+	color: black;
+	margin: auto;
+	padding-top: 150px;
+	font-size: 20px;
+}
+
+.text-big input[type="text"] {
+    color:black;
+}
+
+.text-big input[type="password"] {
+    color:black;
+}
+
+.text-big input[type="password"] {
+    color:black;
+}
+
+.text-big input[type="submit"] {
+    color:black;
+}
+
+.text-big input[type="email"] {
+    color:black;
+}
+
+.headers {
+	color : yellow;
+	font-size: 30px;
+}
